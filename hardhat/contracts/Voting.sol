@@ -1,9 +1,9 @@
-// SPDX-License-Identifiter: MIT
+// SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.2;
 
 contract Voting{
 
-  // Structures: Candidate
+  // Structure: Candidate
   struct Candidate {
       uint256 id;
       string name;
@@ -85,7 +85,7 @@ contract Voting{
       if(voters[_voter] == true){
         return true;
       }
-      
+
       return false;
   }
 
