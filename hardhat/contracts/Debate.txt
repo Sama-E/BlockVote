@@ -1,0 +1,72 @@
+// SPDX-License-Identifiter: MIT
+pragma solidity ^0.8.2;
+
+contract Debate{
+
+//Structures: Topic, Debaters, Arguments, Intro, Rebuttal, Closing
+  struct Topic {
+      uint256 id;
+      string topicQuestion;
+      uint256 initiateVotes;
+      uint256 talliedVotes;
+  }
+
+  struct Debater {
+      uint256 id;
+      string name;
+      uint256 initiateVotes;
+      // Proposition or Opposition
+      bool position; 
+  }
+
+  struct Intro {
+      uint256 id;
+      string name;
+  }
+
+  struct Argument {
+      uint256 id;
+      string argument;
+      string source;
+      uint256 talliedVotes;
+  }
+
+  struct Rebuttal {
+      uint256 id;
+      string rebuttal;
+      string source;
+      uint256 talliedVotes;
+  }
+
+  struct Closing {
+      uint256 id;
+      string closing;
+  }
+
+  struct Comments {
+      uint256 id;
+      string title;
+      string comment;
+  }
+
+  //List of Topics
+  Topic[] public topics;
+  //Owner's address
+  address public owner;
+
+  //Map all voter's address - verify voting status
+  mapping(address => bool) public voters;
+
+  //List of voters
+  address[] public listOfVoters;
+
+  //Create voting start and end session
+  uint256 public votingStart;
+  uint256 public votingEnd;
+
+  //Election status
+  bool public votingTopicStatus;
+  bool public votingArgumentStatus;
+  bool public votingRebuttalStatus;
+
+}
